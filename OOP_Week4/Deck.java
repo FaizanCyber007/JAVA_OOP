@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Deck {
     Card cards[] = new Card[52];
     
@@ -20,5 +22,16 @@ public class Deck {
             str.append(cards[i] + "\n");
         }
         return str.toString();
+    }
+
+    public void shuffleDeck() {
+        Random random = new Random();
+        
+        for(int i=0; i<6000; i++) {
+            int randomIndex = random.nextInt(52);
+            Card temp = cards[randomIndex];
+            cards[randomIndex] = cards[0];
+            cards[0] = temp;
+        }
     }
 }
