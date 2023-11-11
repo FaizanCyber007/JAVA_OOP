@@ -6,8 +6,22 @@ public class Indrive {
                 taxis[i] = new Taxi();
             }
         }
+    }
 
-
+    public static<K,V> void distanceWiseList(Taxi[] taxis, Person person) {
+        for(int i=0; i<taxis.length; i++) {
+            for(int j=0; j<taxis.length-1; j++) {
+                if(taxis[j] != null && taxis[j+1]!=null) {
+                    double distance = Math.sqrt(Math.pow(taxis[j].locationX - person.personLocationX, 2) + Math.pow(taxis[j].locationY - person.personLocationY, 2));
+                    double distance2 = Math.sqrt(Math.pow(taxis[j+1].locationX - person.personLocationX, 2) + Math.pow(taxis[j+1].locationY - person.personLocationY, 2));
+                    if(distance2 <= distance) {
+                        Taxi temp = taxis[j];
+                        taxis[j] = taxis[j+1];
+                        taxis[j+1] = temp;
+                    }
+                }
+            }
+        }
     }
     public static<T,V> Taxi findNearestTaxi(Taxi[] taxis, Person person) {
         Taxi t = null;

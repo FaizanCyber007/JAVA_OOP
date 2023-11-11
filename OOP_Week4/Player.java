@@ -1,17 +1,16 @@
 public class Player {
+    Card cardHolder[] = new Card[13];
     final String name;
-    final int score;
 
-    Player(String name, int score) {
+    Player(String name) {
         this.name = name;
-        this.score = score;
     }
-    public int getScore() {
-        return score;
-    }
+
     public String getName() {
         return name;
     }
 
-
+    public String toString() {
+        return String.format("%s", name);
+    }
 }
