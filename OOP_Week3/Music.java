@@ -51,4 +51,24 @@ public class Music {
     public String toString() {
         return String.format("Title: %s \nDuration: %s \nGenre: %s \nRelease Date: %s \n%s",title,duration,genre,releasDate,singer);
     }
+
+
+    // public boolean equals( Music m) {
+    //     if(this.title == m.title) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
+
+// public boolean equals(Music m) {
+//     return this.title.equals(m.title)? true: false;
+
+// }
+
+    public boolean equals(Object o) {
+        Music m = (Music)o;
+        return this.title.equals(m.title)? true: false;
+    }
 }
